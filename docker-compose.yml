@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  dynamodb-local:
+    image: amazon/dynamodb-local
+    ports:
+     - 8000:8000
+  aws-cli:
+    build: .
+    volumes:
+     - /Users/lihui/study/aws/cli/.aws:/root/.aws
+    depends_on:
+     - dynamodb-local
